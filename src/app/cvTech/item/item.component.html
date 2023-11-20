@@ -1,0 +1,9 @@
+<li class="list-group-item"
+(click)="onSelectPersonne()"
+>
+  <img src="assets/images/{{personne.path|defImage}}"
+       width="50px"
+       height="50px"
+  >
+  {{personne.name|titlecase}} {{personne.firtName|titlecase}}
+</li>

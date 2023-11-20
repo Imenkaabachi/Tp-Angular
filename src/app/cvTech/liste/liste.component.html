@@ -1,0 +1,4 @@
+<ol class="list-group">
+  <app-item *ngFor="let personne of personnes" (selectedPersonne)="onSelectPersonne($event)" [personne]="personne"></app-item>
+
+</ol>

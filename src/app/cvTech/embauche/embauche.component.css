@@ -1,0 +1,9 @@
+.person-info {
+  display: flex;
+  align-items: center;
+}
+
+.person-name {
+  margin-left: 10px;
+}
+
