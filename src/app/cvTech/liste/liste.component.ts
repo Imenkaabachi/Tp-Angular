@@ -10,6 +10,5 @@ export class ListeComponent {
 
   onSelectPersonne(selectedPersonne) {
     this.selectedPersonne.emit(selectedPersonne)
-
   }
 }

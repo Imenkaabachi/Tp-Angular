@@ -6,6 +6,7 @@ import {DeleteCvComponent} from "./cvTech/delete-cv/delete-cv.component";
 import {AddCvComponent} from "./cvTech/add-cv/add-cv.component";
 import {LoginComponent} from "./login/login.component";
 import {loginGuard} from "./login/login.guard";
+import {ParentComponent} from "./rxjs/parent/parent.component";
 
 
 const APP_ROUTING :Routes = [
@@ -16,6 +17,7 @@ const APP_ROUTING :Routes = [
       {path: ':id', component: DetailPersonneComponent},
     ] },
   {path: 'color/:default', component: ColorComponent},
+  {path: 'rxjs', component: ParentComponent},
   {path: 'login', component: LoginComponent, canActivate : [loginGuard]},
   {path: '', component: CvComponent},
 ];

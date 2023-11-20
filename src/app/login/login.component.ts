@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {BehaviorSubject, map, tap} from "rxjs";
 import {AuthUser} from "./model/AuthUser";
 import {LoginData} from "./model/LoginData";
+import {ToastrService} from "ngx-toastr";
 
 
 
@@ -18,8 +19,11 @@ export class LoginComponent {
   showError = false
 
 
-  constructor(private authService: AuthentificationService,
-              private router: Router) {
+  constructor(
+    private authService: AuthentificationService,
+    private router: Router,
+    private toastr: ToastrService
+    ) {
   }
 
   login(formulaire : NgForm){
@@ -33,7 +37,7 @@ export class LoginComponent {
         // it allows you to peek into the observable stream and do something with the values passed through without altering them.
         // It's like being able to look at the cards in a card game as they are dealt, without changing the order or the game itself.
         if(authenticated){
-          alert("Vous êtes authentifié !")
+          this.toastr.success('Vous êtes authentifié !', 'Success Authentification');
           this.router.navigate(['cv']);
         }else{
           this.showError = true

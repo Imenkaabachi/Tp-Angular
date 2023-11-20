@@ -49,4 +49,17 @@ export class CvService {
   deletePersonne(id: number){
     return this.httpClient.delete(this.link+`/${id}`);
   }
+
+  findByName(name): Observable<Personne[]>{
+    const filter = {
+      where: {
+        name: {
+          like: `%${name}%`
+        }
+      }
+    };
+    const urlWithFilter = this.link+`/?filter=${encodeURIComponent(JSON.stringify(filter))}`;
+
+    return this.httpClient.get<Personne[]>(urlWithFilter);
+  }
 }

@@ -20,7 +20,6 @@ export class DetailComponent {
 
   embaucher(){
     this.embaucheService.embaucher(this.personne);
-
  }
 
   moreInfo() {

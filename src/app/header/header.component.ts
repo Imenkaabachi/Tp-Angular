@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthentificationService} from "../authentification.service";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit{
   loggedIn: boolean = false
 
-  constructor(private authService : AuthentificationService,private router : Router) {
+  constructor(private authService : AuthentificationService,private router : Router,private toastr: ToastrService) {
 
   }
 
@@ -28,7 +29,7 @@ export class HeaderComponent implements OnInit{
 
   logout() {
     if (this.authService.logout()) {
-      alert("Logged Out !")
+      this.toastr.success('Logged Out !', 'Logout');
       this.router.navigate(['cv'])
     } else {
       alert("An error has occurred. Please try again !")

@@ -2,11 +2,15 @@ import {Component, OnInit} from '@angular/core';
 import {Personne} from "../../model/personne";
 import {CvService} from "../service/cv.service";
 import {EmbaucheService} from "../service/embauche.service";
+import {ToastrService} from "ngx-toastr";
+import {FilterByAgePipe} from "../../pipes/filter-by-age.pipe";
 
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
-  styleUrls: ['./cv.component.css']
+  styleUrls: ['./cv.component.css'],
+  providers: [FilterByAgePipe],
+
 })
 export class CvComponent implements OnInit{
   personnes!: Personne[];
@@ -15,7 +19,8 @@ export class CvComponent implements OnInit{
 
   constructor(
     private cvService : CvService,
-    private embaucheService : EmbaucheService
+    private embaucheService : EmbaucheService,
+    private toastr: ToastrService
   ) {
   }
 
@@ -25,7 +30,7 @@ export class CvComponent implements OnInit{
         this.personnes = personnes;
       },
       (error) => {
-        alert('probleme d accès à l api et les donnees affichees sont fake');
+        this.toastr.error('Problème d\'accès à l\'API et les données affichées sont fictives', 'Erreur d\'accès à l\'API');
         this.personnes = this.cvService.getPersonnes();
       }
     )

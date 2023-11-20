@@ -1,2 +1,35 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
 @import "font-awesome";
+
+/* Styles for Success Toasts */
+.toast-custom-style.toast-success {
+  background-color: #4caf50; /* Green background color */
+  color: #fff; /* White text color */
+}
+.toast-person-success {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #28a745; /* Green background color */
+  color: #fff; /* White text color */
+  /* Add any other styles as needed */
+}
+/* Styles for Error Toasts */
+.toast-custom-style.toast-error {
+  background-color: #f44336; /* Red background color */
+  color: #fff; /* White text color */
+}
+
+.toast-person-selected {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f39c12; /* Orange background color */
+  color: #fff; /* White text color */
+  /* Add any other styles as needed */
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

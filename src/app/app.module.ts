@@ -25,6 +25,18 @@ import { DeleteCvComponent } from './cvTech/delete-cv/delete-cv.component';
 import { LoginComponent } from './login/login.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {LoginInterceptorProvider} from "./login.interceptor";
+import {ToastrModule} from "ngx-toastr";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTabsModule} from "@angular/material/tabs";
+import { FilterByAgePipe } from './pipes/filter-by-age.pipe';
+import { SearchComponent } from './cvTech/search/search.component';
+import { ProductComponent } from './produit/product/product.component';
+import {ToastModule} from "primeng/toast";
+import { ProductContainerComponent } from './produit/product-container/product-container.component';
+import { ProductItemComponent } from './produit/product-item/product-item.component';
+import { ParentComponent } from './rxjs/parent/parent.component';
+import { ChildComponent } from './rxjs/child/child.component';
+
 
 
 @NgModule({
@@ -44,6 +56,14 @@ import {LoginInterceptorProvider} from "./login.interceptor";
       AddCvComponent,
       DeleteCvComponent,
       LoginComponent,
+      FilterByAgePipe,
+      SearchComponent,
+      ProductComponent,
+      ProductContainerComponent,
+      ProductItemComponent,
+      ParentComponent,
+      ChildComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -52,7 +72,17 @@ import {LoginInterceptorProvider} from "./login.interceptor";
     FormsModule,
     ReactiveFormsModule,
     ROUTING,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      toastClass: 'toast-custom-style',
+      timeOut: 3000,
+      extendedTimeOut: 1000,
+      progressBar: true,
+    }),
+    BrowserAnimationsModule,
+    MatTabsModule,
+    ToastModule,
   ],
   // providers: [LoginInterceptorProvider],
   bootstrap: [AppComponent]
